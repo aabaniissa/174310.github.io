@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Simple Navigation Menu -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html" class="active">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me using the form below.</p>
+
+        <!-- Contact Form -->
+        <form id="contactForm" onsubmit="return validateAndSubmit(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" placeholder="Enter your country">
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments / Message:</label>
+                <textarea id="comments" rows="5" placeholder="Write your comments here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- JavaScript Validation -->
+    <script>
+        function validateAndSubmit(event) {
+            // Prevent actual page submission to demonstrate JS validation
+            event.preventDefault();
+
+            var name = document.getElementById("fullName").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var country = document.getElementById("country").value.trim();
+            var comments = document.getElementById("comments").value.trim();
+
+            // JS Validation: Check if all fields are filled
+            if (name === "" || email === "" || country === "" || comments === "") {
+                alert("Please fill in all the required fields before submitting.");
+                return false;
+            }
+
+            // Success alert message
+            alert("Thank you, " + name + "! Your form has been submitted successfully.");
+            
+            // Clear form
+            document.getElementById("contactForm").reset();
+            return true;
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 Jordan University of Science and Technology. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
